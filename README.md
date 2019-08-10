@@ -18,6 +18,11 @@ With the use of the optional [FontAwesome For Menus 5 plugin](http://github.com/
 
 The front page content is drawn from the latest post, so a site could ride with just that, or a series of posts could be used to change up the front (a possible future feature would allow navigation or random selection of the front). For now, static Pages can be created, and manually linked from the front.
 
+## Examples In Action
+
+* Demo Site https://lab.cogdogblog.com/eventually/
+
+
 ## Installing from Scratch
 
 Install this theme on any self hosted Wordpress site. You cannot do this on Wordpress.com, get a real web hosting package.
