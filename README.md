@@ -12,11 +12,11 @@ A configurable Wordpress Theme version of [HTML5up Eventually Theme](https://htm
 
 ![Screenshot of Theme](screenshot.png "Screenshot of Eventually Theme")
 
-where the background has a subtle sliding slide show of images. While this feature is hardcoded into the HTML5up theme's javascript files, in the WordPress version images are drawn from the pool of uploaded header images.
+where the background has a subtle sliding slide show of images. While this feature is hardcoded into the HTML5up theme's javascript files, in the WordPress version images are drawn from the pool of uploaded images.
 
 With the use of the optional [FontAwesome For Menus 5 plugin](http://github.com/cogdog/font-awesome-5-menus) (also by me), you can create a menu of social media links in the footer.
 
-The front page content is drawn from the latest post. The basic version would be just to use one post to power the site. But it is also set up so you might have a series of posts that you want to make available as page through clicks (via arrow navigation links). These can be confi
+The front page content is drawn from the latest post. The basic version would be just to use one post to power the site. But it is also set up so you might have a series of posts that you want to make available as page through clicks (via arrow navigation links). These can be configured in the Customizer.
 
 
 ## Examples In Action
