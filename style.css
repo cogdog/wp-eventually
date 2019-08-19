@@ -3,7 +3,7 @@ Theme Name: WP-Eventually
 Theme URI: http://github.com/cogdog/wp-eventually
 Author: Alan Levine
 Author URI: https://cog.dog
-Version: 0.1
+Version: 0.3
 Description: Use this theme for a single screen, clean calling card site, based on the HTML5 UP theme Eventually template, making use of header images for the background sliding effect. Front page content from the mot recent post. Can accomodate pages. Add a social media icon theme with the Font Awesome 5 menus plugin. 
 License: Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,9 +14,25 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
    WordPress specific CSS is below
 */
 
+html, body {
+    height: initial;
+    width: initial;
+}
 
 #header h1 {
     margin: 0;
+}
+
+#header h1 a {
+    border: none;
+}
+
+#header h2 {
+	font-size: 1.35em;
+	line-height: 1.65em;
+	font-weight: normal;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1.5em 0;	
 }
 
 #content {
@@ -39,14 +55,12 @@ p.edit-this {
 .archive-nav {
     margin: 0.5em 2em;
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
 }
 
 .archive-nav a { 
 	border-bottom: none;
 }
-
-
 
 .fontawesome-text {
     display: none;

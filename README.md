@@ -16,7 +16,8 @@ where the background has a subtle sliding slide show of images. While this featu
 
 With the use of the optional [FontAwesome For Menus 5 plugin](http://github.com/cogdog/font-awesome-5-menus) (also by me), you can create a menu of social media links in the footer.
 
-The front page content is drawn from the latest post, so a site could ride with just that, or a series of posts could be used to change up the front (a possible future feature would allow navigation or random selection of the front). For now, static Pages can be created, and manually linked from the front.
+The front page content is drawn from the latest post. The basic version would be just to use one post to power the site. But it is also set up so you might have a series of posts that you want to make available as page through clicks (via arrow navigation links). These can be confi
+
 
 ## Examples In Action
 
@@ -40,7 +41,57 @@ For those that lack direct file upload access or maybe that idea sends shivers d
 
 ## Customizing with the Customizer
 
-(coming soon)
+Use the WordPress Customizer to manage your site. Look for the `Customize` item in the black admin menu or in the dashboard access it via `Appearance` -> `Customize`
+
+Below are the ways this theme uses the Customizer
+
+### Set the Background Images
+
+The main feature of this theme are the sliding images that appear behind the content. These are managed under `Backgrund Slider Images`. The theme comes with a default set of four images (all are public domain images from my flickr site) that will be seen when the theme is installed.
+
+![Default images](header-images-suggested.jpg "Default images")
+
+Click **Add New Image** to upload each one you want to use in your own site. Use big images, the theme will crop them to be 1920 × 900 pixels. There is no limit to how many images you can use.
+
+![Uploaded images](customizer-header-images.jpg "Uploaded images")
+
+
+### Set More Theme Options
+
+Open the panel for `Eventually Mods` to manage the following settings.
+
+
+![Navigation Mode](eventually-nav-mode.jpg "Navigation Mode settings")
+
+**Navigation Mode** defines where the content comes from. The default option is to use the content of the most recent post. This can be a simple one screen site, or maybe just the latest info you publish as a post. The other option produces navigation links if you want viewers to step through a series of posts. And a third mode makes it so each load inserts a random post (e.g. maybe for a site that is a collection of quotes?)
+
+
+![Background Opacity](background-opacity.jpg "Background Opacity slider")
+
+**Background Opacity** lets you manage the visibility of the background images, higher values make them brighter
+
+![Footer Text](footer-text.jpg "Footer Text entry")
+
+**Footer Text** provides your own text in the first section of the footer
+
+![Social Media Icon size](social-media-size.jpg "Social Media Icon size")
+
+**Social Media Size** If you have activated the Font Awesome 4 Menus plugin and defined a menu, use this slider to control the size of the icons.
+
+
+### Site Name. Anything you want!
+
+Under `Site Identity` edit the title that shows up in the footer as well as an optional description of the site as a tagline.
+
+
+![](images/customize-highlights-site-identity.jpg "Edit Site Identity to update the footer")
+
+
+
+### Use Header Image to Set Top Background
+
+Under `Header Image` upload an image (recommended size 1024 x 768 px or bigger) to place a background image for the intro section and the footer of the site
+
 
 ### Social Media Icons
 
@@ -82,7 +133,9 @@ With the Font Awesome icons, you can add any site you wish to be represented on 
 
 ## Features / History
 
-* First release
+* v0.1 First release, yup it works
+* v0.2 Added to customizer options for navigation mode and slider settings for social media icon size
+* v0.3 Added to customizer slider settings for background opacity
 
 ### Requests
 

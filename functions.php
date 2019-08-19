@@ -79,31 +79,28 @@ function eventually_scripts() {
 	
 }
 
-add_action( 'wp_head', 'eventually_custom_css_output', 20);
-
-function eventually_custom_css_output() {
-  echo '<style type="text/css" id="custom-theme-css">' .
-  '.icons {font-size: ' . get_theme_mod( 'eventually_social_icon_size', '1.5' ) . 'em;}' 
-  . '</style>';
-}
-
 
 // --------- Front Page  ----------------------------------------------------------------
 
 // limit the front loop to just one post and skip "hello world"
-add_action('pre_get_posts','eventually_one_post_loop');
+add_action('pre_get_posts', 'eventually_one_post_loop');
 
 function eventually_one_post_loop( $query ) {
     if ( $query->is_home() && $query->is_main_query() ) {
         $query->set( 'posts_per_page', 1 );
         $query->set( 'post__not_in', array(1));
+        
+        // display a random post if mode set in customizer
+        if ( get_theme_mod( 'eventually_nav_mode' )	== 'random' ) {
+        	 $query->set( 'orderby', 'rand' );
+        }
     }
 }
 
 
 
 // --------- Customizer Controls  --------------------------------------------------------
-/*** Customizer settings to allow editing of a front quote, customizing the footer, and ivon ***/
+/*** Customizer settings to allow editing of a front quote, customizing the footer, and icon ***/
 
 add_action( 'customize_register', 'eventually_register_theme_customizer' );
 
@@ -111,10 +108,51 @@ add_action( 'customize_register', 'eventually_register_theme_customizer' );
 
 function eventually_register_theme_customizer( $wp_customize ) {
 
+	// Rename the Header Images Section
+	$wp_customize->get_section('header_image')->title = __( 'Background Slider Images' );
+
 	// Add section in customizer for this stuff
 	$wp_customize->add_section( 'eventually_stuff' , array(
-		'title'    => __('Eventually Mods','eventually'),
-		'priority' => 500
+		'title'    => __('Eventually Mods', 'eventually'),
+		'priority' => 65
+	) );
+	
+
+	$wp_customize->add_setting( 'eventually_nav_mode',
+	   array(
+		  'default' => 'navposts',
+		  'transport' => 'refresh'
+	   )
+	);
+
+	$wp_customize->add_control( 'eventually_nav_mode',
+		array(
+			'label' => __( 'Navigation Mode' ),
+			'description' => __( 'Options for navigation among content' ),
+			'section' => 'eventually_stuff',
+			'type' => 'radio',
+			'choices' => array( 
+				'navposts' => __( 'Page through previous posts with navigation links', 'eventually' ),
+				'latest' => __( 'Latest Post Only (no navigation links)', 'eventually' ),
+				'random' => __( 'Random content on front  (no navigation links)', 'eventually' )
+			)
+		)
+	);
+
+	$wp_customize->add_setting( 'eventually_bg_opacity', array(
+		 'default'           => __( '.25', 'eventually' ),
+	) );
+	
+	$wp_customize->add_control( 'eventually_bg_opacity', array(
+	  'type' => 'range',
+	  'section' => 'eventually_stuff',
+	  'label' => __( 'Background Images Opacity', 'eventually' ),
+	  'description' => __( 'Choose higher values to make background images brighter (range 0.0 - 1.0)', 'eventually' ),
+	  'input_attrs' => array(
+		'min' => 0.0,
+		'max' => 1.0,
+		'step' => 0.05,
+	  ),
 	) );
 
 
@@ -140,7 +178,6 @@ function eventually_register_theme_customizer( $wp_customize ) {
 	$wp_customize->add_setting( 'eventually_social_icon_size', array(
 		 'default'           => __( '1.5', 'eventually' ),
 	) );
-	
 	
 	$wp_customize->add_control( 'eventually_social_icon_size', array(
 	  'type' => 'range',
@@ -183,16 +220,6 @@ function eventually_register_theme_customizer( $wp_customize ) {
 }
 
 // display footer text
-function eventually_social_media_font_size() {
-
-	 if ( get_theme_mod( 'eventually_social_icon_size') != "" ) {
-	 	echo get_theme_mod( 'eventually_social_icon_size') . 'em';
-	 }	else {
-	 	echo '1.5em';
-	 }
-}
-
-// display footer text
 function eventually_footer_text() {
 
 	 if ( get_theme_mod( 'eventually_footer_content') != "" ) {
@@ -201,6 +228,18 @@ function eventually_footer_text() {
 	 	echo 'This text ought to be customized!';
 	 }
 }
+
+
+// CSS managed from the Customizer settings
+add_action( 'wp_head', 'eventually_custom_css_output', 20);
+
+function eventually_custom_css_output() {
+  echo '<style type="text/css" id="custom-theme-css">
+  .icons {font-size: ' . get_theme_mod( 'eventually_social_icon_size', '1.5' ) . 'em;}
+  #bg {opacity: ' .   get_theme_mod( 'eventually_bg_opacity', '0.25' ) . ';}
+  </style>';
+}
+
 
 /**
  * This function assumes you have a Customizer export file in your theme directory

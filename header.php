@@ -10,10 +10,7 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 
 		<?php wp_head(); ?>
-		
-		<style>
-		.icons {font-size: <?php eventually_social_media_font_size()?>};
-		</style>
+
 	</head>
 	<body>
 

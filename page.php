@@ -4,13 +4,15 @@
 		<h1><a href="<?php echo site_url();?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<?php
 
-
+		
 		if ( have_posts() ) :
 			// Start the Loop.
 			while ( have_posts() ) : the_post();?>
-				<p><?php the_title(); ?></p>
-		</header>	
-			<div id="content">
+
+				<h2><?php the_title(); ?></h2>
+				
+				</header>	
+			<section id="content">
 					<?php
 					the_content();
 			
@@ -18,12 +20,12 @@
 				endwhile;
 			else : 
 
-					echo 'Eventually something will be shown here, none seem to be present now, sad.';
+					echo '<h2>Nothing found!</h2></header><section id="content">Eventually something will be shown here, none seem to be present now, sad.';
 
 			endif; 
 
 			?>
-    	</div>
+    	</section>
 
 								
 <?php get_footer(); ?>
