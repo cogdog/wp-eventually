@@ -291,5 +291,5 @@ function eventually_default_header_images() {
 }
 
 // Load plugin requirements file to display admin notices.
-// require get_stylesheet_directory() . '/includes/splot-plugins.php';
+require get_stylesheet_directory() . '/includes/splot-plugins.php';
 ?>
