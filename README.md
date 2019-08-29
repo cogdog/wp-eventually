@@ -22,6 +22,7 @@ The front page content is drawn from the latest post. The basic version would be
 ## Examples In Action
 
 * Demo Site https://lab.cogdogblog.com/eventually/
+* Clint Lalonde CMALT Portfolio https://cmalt.edtechfactotum.com/
 
 
 ## Installing from Scratch
